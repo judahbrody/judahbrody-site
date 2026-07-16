@@ -20,12 +20,4 @@
     "FROM_NAME": "Judah Brody Productions"
   },
 
-  // Cloudflare Email Service binding used by /functions/api/contact.js
-  // The destination_address must be a verified destination in Email Routing.
-  "send_email": [
-    {
-      "name": "SEND_EMAIL",
-      "destination_address": "judahbrody@gmail.com"
-    }
-  ]
-}
+  }
