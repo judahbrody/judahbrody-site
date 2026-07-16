@@ -1,0 +1,31 @@
+// Cloudflare Pages config.
+//
+// You do NOT have to use this file — you can configure the same bindings and
+// env vars through the Cloudflare dashboard (Pages -> Settings). This file is
+// here so the configuration lives in source control alongside the code.
+//
+// If you deploy from GitHub, set `pages_build_output_dir` to the folder that
+// contains index.html. For this project that's the repo root (".").
+//
+// See SETUP-CLOUDFLARE.md for the one-time setup steps.
+{
+  "name": "judahbrody",
+  "compatibility_date": "2026-07-15",
+  "pages_build_output_dir": ".",
+
+  // Recipient + sender addresses. Override in the dashboard if you rename them.
+  "vars": {
+    "TO_EMAIL": "judahbrody@gmail.com",
+    "FROM_EMAIL": "contact@judahbrody.com",
+    "FROM_NAME": "Judah Brody Productions"
+  },
+
+  // Cloudflare Email Service binding used by /functions/api/contact.js
+  // The destination_address must be a verified destination in Email Routing.
+  "send_email": [
+    {
+      "name": "SEND_EMAIL",
+      "destination_address": "judahbrody@gmail.com"
+    }
+  ]
+}

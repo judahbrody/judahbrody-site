@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+<link rel="manifest" href="assets/site.webmanifest" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Get a Quote | Judah Brody Productions, Santa Barbara</title>
+<meta name="description" content="Tell us about your project and get a quote. Video, photo, web, and social for Santa Barbara businesses and nonprofits. Replies within one business day." />
+<link rel="canonical" href="https://judahbrody.com/contact.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Get a Quote | Judah Brody Productions" />
+<meta property="og:description" content="Tell us about your project and get a quote. Replies within one business day." />
+<meta property="og:url" content="https://judahbrody.com/contact.html" />
+<meta property="og:image" content="https://judahbrody.com/assets/og-image.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/styles.css" />
+
+</head>
+<body>
+
+<!-- Mobile-only drawer -->
+<div class="drawer" id="drawer">
+  <a href="work.html">Work</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<header class="topbar">
+  <div class="topbar__row">
+    <a href="index.html" class="wordmark">Judah Brody Productions</a>
+    <nav class="topbar__nav" aria-label="Primary">
+      <a href="work.html">Work</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-head grid">
+    <div class="measure">
+      <span class="label">Contact</span>
+      <h1>Tell us about the project.</h1>
+      <p class="page-head__lede">A few details is all we need to send you a real quote. Replies within one business day.</p>
+    </div>
+  </section>
+
+  <form id="quote-form" class="form" data-endpoint="/api/contact" data-mailto="judahbrody@gmail.com" novalidate>
+    <div class="hp" aria-hidden="true">
+      <label>Company website<input type="text" name="company_website" tabindex="-1" autocomplete="off" /></label>
+    </div>
+
+    <div class="form__field">
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" autocomplete="name" required />
+    </div>
+
+    <div class="form__field">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required />
+    </div>
+
+    <div class="form__field">
+      <label for="phone">Phone <span class="opt">(optional)</span></label>
+      <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" />
+    </div>
+
+    <div class="form__field">
+      <label for="service">What do you need</label>
+      <select id="service" name="service" required>
+        <option value="" disabled selected>Choose one</option>
+        <option>Event videography</option>
+        <option>Commercial or explainer</option>
+        <option>PSA or nonprofit</option>
+        <option>Photography</option>
+        <option>Web</option>
+        <option>Social management</option>
+        <option>Not sure</option>
+      </select>
+    </div>
+
+    <div class="form__field">
+      <label for="budget">Budget range <span class="opt">(optional)</span></label>
+      <select id="budget" name="budget">
+        <option value="" disabled selected>Choose one</option>
+        <option>Under $1,000</option>
+        <option>$1,000 to $3,000</option>
+        <option>$3,000 to $7,000</option>
+        <option>$7,000 or more</option>
+        <option>Not sure yet</option>
+      </select>
+    </div>
+
+    <div class="form__field">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="What are you making, when do you need it, and where is it happening?" required></textarea>
+    </div>
+
+    <div class="form__foot">
+      <button type="submit" class="form__submit">Send inquiry</button>
+      <span class="form__note">Replies within one business day.</span>
+    </div>
+  </form>
+
+  <div id="form-success" class="form-success" role="status" aria-live="polite">
+    <h3>Message received. I will reply within one business day.</h3>
+    <p>If your mail app just opened, send that draft to finish. Prefer to reach out directly? The details are below.</p>
+  </div>
+  <section class="contact contact--interior" aria-labelledby="contact-title-contact">
+    <span class="label" id="contact-title-contact">Contact</span>
+    <div class="crow">
+      <span class="crow__key">Phone</span>
+      <a class="crow__val" href="tel:+18058865822">(805) 886-5822</a>
+    </div>
+    <div class="crow">
+      <span class="crow__key">Email</span>
+      <a class="crow__val" href="mailto:judahbrody@gmail.com">judahbrody@gmail.com</a>
+    </div>
+    <div class="crow">
+      <span class="crow__key">Instagram</span>
+      <a class="crow__val" href="https://www.instagram.com/blabpth" rel="me">@blabpth</a>
+    </div>
+    <div class="crow">
+      <span class="crow__key">LinkedIn</span>
+      <a class="crow__val" href="https://www.linkedin.com/in/judahbrody/" rel="me">in/judahbrody</a>
+    </div>
+    <p class="contact__area">Santa Barbara, Ventura, San Luis Obispo. Travel available.</p>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot__grid">
+    <div class="foot__brand">
+      <div class="foot__wordmark">Judah Brody Productions</div>
+      <p>Video-first digital media for Santa Barbara businesses and nonprofits.</p>
+      <span class="foot__faa">FAA Part 107 Certified</span>
+    </div>
+    <nav class="foot__nav" aria-label="Footer">
+      <a href="work.html">Work</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+  <div class="foot__base">
+    <span>&copy; <span data-year>2026</span> Judah Brody Productions.</span>
+    <span>Santa Barbara, California</span>
+  </div>
+</footer>
+
+<div class="quotebar">
+  <a href="contact.html">Get a quote</a>
+</div>
+
+<script src="assets/main.js"></script>
+</body>
+</html>
