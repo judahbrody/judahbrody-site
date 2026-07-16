@@ -77,13 +77,13 @@
   }
 
   /* ---------- contact form ----------
-     Submits to /api/contact (Cloudflare Pages Function -> Email Service).
+     Submits to Formspree (endpoint in the form's data-endpoint attribute).
      Falls back to mailto: if the endpoint is unavailable or errors, so the
      lead is never lost. */
   var form = document.getElementById("quote-form");
   if (form) {
     var success = document.getElementById("form-success");
-    var endpoint = form.getAttribute("data-endpoint") || "/api/contact";
+    var endpoint = form.getAttribute("data-endpoint") || "";
 
     var readValues = function () {
       var data = new FormData(form);
@@ -147,12 +147,34 @@
 
       /* Timeout guard: if the Function is slow or DNS is misconfigured, fall
          through to mailto after 8s rather than leaving the visitor hanging. */
+      /* No endpoint configured yet (or placeholder ID): skip the fetch. */
+      if (!endpoint || endpoint.indexOf("YOUR_FORM_ID") !== -1) {
+        finish(false);
+        return;
+      }
+
       var timer = window.setTimeout(function () { finish(false); }, 8000);
 
+      /* Formspree: Accept header makes it respond with JSON instead of a
+         redirect; _replyto sets Reply-To to the visitor; _subject sets the
+         email subject line. Extra keys are ignored by other endpoints. */
+      var payload = {
+        name: v.name,
+        email: v.email,
+        phone: v.phone,
+        service: v.service,
+        budget: v.budget,
+        message: v.message,
+        _replyto: v.email,
+        _subject: "New project inquiry: " + (v.service || "General")
+      };
       var attempt = window.fetch(endpoint, {
         method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(v)
+        headers: {
+          "content-type": "application/json",
+          "accept": "application/json"
+        },
+        body: JSON.stringify(payload)
       });
 
       attempt.then(function (res) {

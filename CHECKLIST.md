@@ -7,27 +7,25 @@ Updated after the latest pass. **[needs you]** = blocked on you.
 
 ## Done in the latest pass
 
-- **Contact form wired to Cloudflare.** New Pages Function at
-  `functions/api/contact.js` receives the POST and sends via the Cloudflare
-  Email Service binding to `judahbrody@gmail.com`. Reply-To is set to the
-  visitor so hitting reply goes back to them. Honeypot is checked
-  server-side before the send binding is even called. Mailto stays as a
-  hard fallback if the endpoint is ever unreachable (8s timeout guard).
-  A `wrangler.jsonc` at the site root declares the binding and env vars.
-- Tested the Function locally with a mock env: happy path returns
-  `200 {ok: true}` and passes To/From/Reply-To correctly, missing fields
-  return `400`, honeypot returns `200` without touching the send binding,
-  and missing binding returns `503`.
-- See `SETUP-CLOUDFLARE.md` for the one-time dashboard setup (six short
-  steps). **[needs you]** to actually complete those steps in Cloudflare
-  before the form goes live end-to-end.
+- **Contact form moved to Formspree** after the Cloudflare Email Service
+  path turned out to require Workers Paid. The Cloudflare Pages Function,
+  `wrangler.jsonc`, and `SETUP-CLOUDFLARE.md` were removed. The form now
+  posts JSON to Formspree with Reply-To set to the visitor and the
+  service in the subject line. Honeypot still checked client-side before
+  anything is sent; mailto fallback unchanged.
+- Zebra favicon set integrated on all 11 pages (ico, 32px PNG, apple
+  touch icon, 192/512 manifest icons, transparent master PNG).
+
 
 ## Contact form status
 
-- Code: **done** in this repo.
-- Cloudflare setup: **six one-time dashboard steps** in
-  `SETUP-CLOUDFLARE.md`. Prereqs are DNS on Cloudflare and Workers Paid.
-- Until steps are done, the fallback `mailto:judahbrody@gmail.com` runs.
+- Switched from Cloudflare Email Service (needed Workers Paid) to
+  Formspree free tier. Hosting unchanged: still Cloudflare Pages from
+  GitHub.
+- Code done. **[needs you]** one 5-minute step: create the Formspree
+  form and paste its ID into `contact.html` (see `SETUP-FORMSPREE.md`).
+  Until then the mailto fallback covers submissions.
+
 
 ## Priority 1 — Simplify and de-clutter
 
@@ -69,7 +67,6 @@ Updated after the latest pass. **[needs you]** = blocked on you.
 
 ## Open items for you
 
-- Complete `SETUP-CLOUDFLARE.md` in the dashboard so the form sends end
-  to end.
+- Do the Formspree step in `SETUP-FORMSPREE.md`.
 - Row 05, 06 on Work: real title, link, category, or pull them for now.
 - Remaining press URLs above.
