@@ -54,8 +54,9 @@
 
   /* ---------- work grid filters (v1 workitem + v2 rrow) ---------- */
   var pills = document.querySelectorAll(".pill[data-filter], .filters-text button[data-filter]");
-  var items = document.querySelectorAll(".workitem[data-cat], .rrow[data-cat]");
-  if (pills.length && items.length) {
+  var items = document.querySelectorAll(".workitem[data-cat], .rrow[data-cat], .gallery__link[data-cat]");
+  var infoBlocks = document.querySelectorAll("[data-filter-info]");
+  if (pills.length && (items.length || infoBlocks.length)) {
     var groups = document.querySelectorAll(".filter-group");
     function applyFilter(f) {
       items.forEach(function (item) {
@@ -65,6 +66,10 @@
       groups.forEach(function (g) {
         var visible = g.querySelectorAll("[data-cat]:not([hidden])").length;
         g.hidden = visible === 0;
+      });
+      /* Show summary/footnote blocks tied to specific filters (galleries). */
+      infoBlocks.forEach(function (el) {
+        el.hidden = el.getAttribute("data-filter-info") !== f;
       });
     }
     pills.forEach(function (pill) {
@@ -335,4 +340,16 @@
     var sport = byMonth[new Date().getMonth()] || "the game";
     sportEls.forEach(function (el) { el.textContent = sport; });
   }
+
+  /* ---------- read-more expando ---------- */
+  document.querySelectorAll("[data-expando-toggle]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var wrap = btn.closest("[data-expando]");
+      if (!wrap) return;
+      var open = wrap.getAttribute("data-expanded") === "true";
+      wrap.setAttribute("data-expanded", String(!open));
+      btn.setAttribute("aria-expanded", String(!open));
+      btn.textContent = open ? "Read more" : "Read less";
+    });
+  });
 })();
