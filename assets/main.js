@@ -60,7 +60,8 @@
     var groups = document.querySelectorAll(".filter-group");
     function applyFilter(f) {
       items.forEach(function (item) {
-        var match = f === "all" || item.getAttribute("data-cat") === f;
+        var cats = (item.getAttribute("data-cat") || "").split(/\s+/);
+        var match = f === "all" || cats.indexOf(f) !== -1;
         item.hidden = !match;
       });
       groups.forEach(function (g) {

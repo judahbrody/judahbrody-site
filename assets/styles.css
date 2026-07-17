@@ -746,3 +746,61 @@ h1, h2, h3, h4 {
 .vwall__cell--link img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .vwall__play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 2; font-weight: 800; letter-spacing: 0.14em; font-size: var(--s-1); color: var(--paper); background: rgba(20, 17, 13, 0.72); padding: 10px 18px; border: 1px solid var(--paper); }
 .vwall__cell--link:hover .vwall__play, .vwall__cell--link:focus-visible .vwall__play { background: var(--paper); color: var(--ink); }
+
+
+/* --- home page: 3 reasons block (breaks up the wall of text) ------------ */
+.reasons { border-top: 1px solid var(--line); padding-block: clamp(48px, 6vw, 88px); }
+.reasons__head { padding: 0 var(--gut); margin-bottom: clamp(24px, 3vw, 40px); }
+.reasons__grid { padding: 0 var(--gut); display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 3vw, 48px); }
+@media (max-width: 780px) { .reasons__grid { grid-template-columns: 1fr; gap: clamp(28px, 4vw, 40px); } }
+.reason { display: flex; flex-direction: column; gap: 10px; }
+.reason__n { font-size: var(--s-1); letter-spacing: 0.16em; color: var(--muted); }
+.reason__k { font-weight: 800; font-size: var(--s1); line-height: 1.15; margin: 0; }
+.reason__v { color: var(--paper-dim); font-size: var(--s0); line-height: 1.5; margin: 0; }
+.reasons__foot { padding: clamp(28px, 3.5vw, 44px) var(--gut) 0; color: var(--paper-dim); font-size: var(--s0); }
+
+/* --- services: custom-quote replaces the price row --------------------- */
+.rate__price--custom { padding: clamp(14px, 1.8vw, 22px) 0 0; }
+.rate__price--custom a { font-size: var(--s0); letter-spacing: 0.04em; }
+
+
+/* --- home: testimonials block ------------------------------------------ */
+.testimonials { padding-block: clamp(56px, 7vw, 96px); }
+.testimonials__head { padding: 0 var(--gut); margin-bottom: clamp(24px, 3vw, 40px); }
+.testimonials__grid { padding: 0 var(--gut); display: grid; grid-template-columns: 1fr 1.15fr 1.5fr; gap: clamp(28px, 3vw, 56px); align-items: start; }
+@media (max-width: 900px) { .testimonials__grid { grid-template-columns: 1fr; gap: clamp(32px, 4vw, 48px); } }
+.tm { margin: 0; display: flex; flex-direction: column; gap: 16px; border-top: 1px solid var(--line-2); padding-top: clamp(18px, 2vw, 28px); }
+.tm blockquote { margin: 0; }
+.tm blockquote p { font-size: var(--s0); line-height: 1.5; color: var(--paper); margin: 0; }
+.tm--short blockquote p { font-size: var(--s1); font-weight: 500; line-height: 1.35; }
+.tm figcaption { display: flex; flex-direction: column; gap: 2px; }
+.tm__name { font-weight: 700; font-size: var(--s-1); letter-spacing: 0.04em; text-transform: uppercase; color: var(--paper); }
+.tm__role { font-size: var(--s-1); color: var(--muted); }
+
+/* --- services: FAQ ------------------------------------------------------ */
+.faq { padding-block: clamp(56px, 7vw, 96px); }
+.faq__head { padding: 0 var(--gut); margin-bottom: clamp(20px, 2.5vw, 32px); }
+.faq__grid { padding: 0 var(--gut); }
+.faq__item { border-top: 1px solid var(--line); padding: clamp(16px, 2vw, 22px) 0; }
+.faq__item:last-child { border-bottom: 1px solid var(--line); }
+.faq__item summary { list-style: none; cursor: pointer; font-weight: 700; font-size: var(--s1); line-height: 1.25; color: var(--paper); position: relative; padding-right: 40px; }
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::after { content: "+"; position: absolute; right: 0; top: 50%; transform: translateY(-50%); font-weight: 400; font-size: var(--s2); color: var(--paper-dim); transition: transform 200ms ease; }
+.faq__item[open] summary::after { content: "\2212"; }
+.faq__item p { margin: 12px 0 0; color: var(--paper-dim); font-size: var(--s0); line-height: 1.5; max-width: 62ch; }
+
+/* --- field notes: post list + post body -------------------------------- */
+.post-list { border-top: 1px solid var(--line); }
+.post-row { display: grid; grid-template-columns: 200px 1fr; gap: clamp(20px, 3vw, 48px); padding: clamp(24px, 3vw, 40px) var(--gut); border-bottom: 1px solid var(--line); text-decoration: none; color: inherit; transition: background 150ms ease; }
+.post-row:hover, .post-row:focus-visible { background: var(--ink-2); }
+@media (max-width: 720px) { .post-row { grid-template-columns: 1fr; gap: 8px; } }
+.post-row__date { font-size: var(--s-1); letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+.post-row__title { font-weight: 800; font-size: var(--s2); line-height: 1.15; margin: 0 0 10px; }
+.post-row__excerpt { color: var(--paper-dim); font-size: var(--s0); line-height: 1.5; margin: 0; max-width: 62ch; }
+
+.post__head { padding-block: clamp(48px, 6vw, 88px); }
+.post__date { font-size: var(--s-1); letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: clamp(12px, 1.5vw, 20px); }
+.post__title { font-weight: 800; font-size: clamp(2rem, 1.4rem + 2.4vw, 3.6rem); line-height: 1.1; margin: 0; }
+.post__body { padding-block: clamp(20px, 2.5vw, 40px) clamp(48px, 6vw, 88px); }
+.post__body p { font-size: var(--s0); line-height: 1.6; color: var(--paper); margin: 0 0 clamp(16px, 2vw, 24px); max-width: 68ch; }
+.post__body h3 { font-weight: 800; font-size: var(--s1); line-height: 1.2; margin: clamp(28px, 3.5vw, 40px) 0 clamp(12px, 1.5vw, 18px); }

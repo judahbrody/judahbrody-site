@@ -7,40 +7,38 @@ Updated after the latest pass. **[needs you]** = blocked on you.
 
 ## Done in the latest pass
 
-- **New Writing page** at `writing.html`, listing the 5 published pieces
-  (Kinney feature, mimoLive JEA how-to, Noozhawk, AZPreps365, The
-  Channels). Linked from a new Work row 12.
-- **Archive hidden.** `noindex` meta added, all links removed from Work
-  (both the case-study row-level references and the "View the archive"
-  link). Archive still exists at `/archive.html` but nothing on the
-  public site points to it and search engines are told to skip it.
-- **Work page:**
-  - Removed both "Project to come" placeholder rows.
-  - "Prints on Payhip" → "Licenses on Payhip" on East Africa Wildlife.
-  - Community Events link swapped to `9gIy2OBZZMw` at the top of the
-    playlist.
-  - New "Writing" row added at position 12 with Noozhawk thumb.
-- **Profiles thumbnail** updated to the new ferret-and-mic image.
-- **Denys essay summary** now clamps to 3 lines with a "Read more" /
-  "Read less" toggle, so the photos aren't buried under text on the
-  essay-music filter.
+- **Hero headline** punched up: "Stories worth the whole watch" -> "Stories
+  that earn the whole watch."
+- **Testimonials** section on the home page, between Selected work and
+  Featured in. Three quotes: Mike Parsons (short), Franklin Levine
+  (medium), Drake Presto (long). Three-column desktop, stacked mobile.
+- **"Case study" -> "Project"** across page titles, labels, and aria
+  labels (0 residue).
+- **3 reasons** block on home page above the Selected work grid: One
+  shop, Journalist trained, Everything in-house.
+- **Home wall of text** broken up: mission paragraph kept, credentials
+  sentence-dump replaced by the reasons block.
+- **Services pricing** removed on all 4 sections; each replaced with a
+  "Contact for a custom quote" link.
+- **Services FAQ** added with 6 items: turnaround, travel, "starting
+  at", revisions, payments, footage ownership.
+- **Field Notes** section: `field-notes/index.html` hub plus four posts
+  (brand-video-cost, video-vs-photo, shoot-day-expectations,
+  one-producer-vs-agency). Notes now sits in the primary and drawer nav
+  on every top-level page.
+- **sitemap.xml + robots.txt** generated. Sitemap covers all public
+  pages including the four field notes posts. robots.txt disallows the
+  hidden archive page and points to the sitemap.
+- **JSON-LD schema** on home page: existing ProfessionalService kept
+  (removed my duplicate LocalBusiness so there is only one).
+- **Quotebar** hidden on the contact page (was redundant).
 
-## Priority 1 through 4 — status
+## Still open
 
-- [x] All 1.x done.
-- [x] Archive hidden. Filters were kept in case you re-open it later.
-- [x] 3.2 Rip Current hero + case thumbnail done.
-- [ ] 3.3 Press links: 6 of 9 wired. Still need NFHS Network, VOICE
-      Magazine, KEYT-3 News.
-- [ ] 3.4 Client logo audit.
-- [ ] og-image.jpg: replace temp with a designed 1200x630.
-- [ ] About second image (optional).
-
-## Contact form status
-
-- Formspree wired. Paste your 8-character form ID into `contact.html`
-  where it says `YOUR_FORM_ID` and push. See `SETUP-FORMSPREE.md`.
-
-## Open items for you
-
-- Remaining press URLs above.
+- 3 press URLs still tooltip-only: NFHS Network, VOICE Magazine, KEYT-3
+  News. **[needs you]**
+- og-image.jpg: still a temp preview. **[needs you]** a designed
+  1200x630 share card.
+- About second image (optional two-image strip). **[needs you]**
+- Client logo audit. **[needs you]**
+- Formspree form ID paste. **[needs you]** See `SETUP-FORMSPREE.md`.
