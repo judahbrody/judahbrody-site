@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--
+  Share card template for judahbrody.com social sharing (Open Graph / Twitter).
+
+  To swap the photo:
+    Edit the <img src="..."> inside .card__photo below.
+
+  To re-export:
+    Open this file in a browser at 1200x630 viewport (browser dev tools
+    -> device toolbar -> custom 1200x630), then screenshot. Or use
+    playwright to render it (see build script).
+
+  Design:
+    - Left half: photo
+    - Right half: paper background with wordmark and services strip.
+    - Fonts match the site: Instrument Serif (headline) + Hanken Grotesk.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="robots" content="noindex" />
+<title>Share Card | Judah Brody Productions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Instrument+Serif:wght@400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #14110D;
+    --paper: #F2EBDE;
+    --paper-dim: #6B6355;
+    --paper-line: rgba(20, 17, 13, 0.18);
+    --gold: #B8934A;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 1200px; height: 630px; overflow: hidden;
+    font-family: "Hanken Grotesk", system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+  }
+  .card { display: grid; grid-template-columns: 1fr 1fr; width: 1200px; height: 630px; }
+
+  .card__photo { position: relative; overflow: hidden; background: var(--ink); }
+  .card__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .card__body {
+    background: var(--paper);
+    padding: 60px 68px;
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+  }
+  .card__eyebrow {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 18px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--ink);
+  }
+  .card__eyebrow::before {
+    content: ""; display: inline-block;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--gold);
+  }
+
+  .card__wordmark { display: flex; flex-direction: column; gap: 6px; }
+  .card__wordmark h1 {
+    font-family: "Instrument Serif", Georgia, serif;
+    font-weight: 400;
+    font-size: 96px; line-height: 0.95;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .card__wordmark .productions {
+    font-size: 20px; font-weight: 600;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 12px;
+  }
+
+  .card__foot { display: flex; flex-direction: column; gap: 14px; }
+  .card__foot::before {
+    content: ""; display: block;
+    width: 100%; height: 1px; background: var(--paper-line);
+    margin-bottom: 8px;
+  }
+  .card__services {
+    font-size: 22px; line-height: 1.45;
+    color: var(--ink);
+  }
+  .card__services span { color: var(--paper-dim); margin: 0 6px; }
+  .card__url {
+    font-size: 22px; font-weight: 700;
+    color: var(--ink);
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="card__photo">
+      <img src="assets/about-bts.jpg" alt="Judah Brody filming an interview" />
+    </div>
+    <div class="card__body">
+      <div class="card__eyebrow">Production Studio</div>
+      <div class="card__wordmark">
+        <h1>Judah<br>Brody</h1>
+        <div class="productions">Productions</div>
+      </div>
+      <div class="card__foot">
+        <div class="card__services">Video <span>&middot;</span> Photo<br>Social <span>&middot;</span> Strategy</div>
+        <div class="card__url">judahbrody.com</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

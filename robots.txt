@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /archive.html
+Disallow: /share-card.html
 
 Sitemap: https://judahbrody.com/sitemap.xml
