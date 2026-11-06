@@ -195,24 +195,42 @@
     });
   }
 
-  /* ---------- hero video: always attempt autoplay, with interaction fallback ---------- */
+  /* ---------- responsive hero: load only the desktop or mobile video ---------- */
   var heroVideo = document.querySelector(".hero__media video");
   if (heroVideo) {
-    var attempt = function () {
+    var heroMobileQuery = window.matchMedia("(max-width: 720px)");
+    var attemptHeroPlay = function () {
       var p = heroVideo.play();
       if (p && typeof p.catch === "function") { p.catch(function () {}); }
     };
-    attempt();
-    /* if the browser blocked autoplay, start on the first interaction; poster shows until then */
-    var kick = function () {
-      attempt();
-      window.removeEventListener("pointerdown", kick);
-      window.removeEventListener("keydown", kick);
-      window.removeEventListener("touchstart", kick);
+    var selectHeroVideo = function () {
+      var mobile = heroMobileQuery.matches;
+      var src = heroVideo.getAttribute(mobile ? "data-mobile-src" : "data-desktop-src");
+      var poster = heroVideo.getAttribute(mobile ? "data-mobile-poster" : "data-desktop-poster");
+      if (heroVideo.getAttribute("src") !== src) {
+        heroVideo.pause();
+        heroVideo.setAttribute("poster", poster);
+        heroVideo.setAttribute("src", src);
+        heroVideo.load();
+      }
+      attemptHeroPlay();
     };
-    window.addEventListener("pointerdown", kick);
-    window.addEventListener("keydown", kick);
-    window.addEventListener("touchstart", kick);
+    selectHeroVideo();
+    if (heroMobileQuery.addEventListener) {
+      heroMobileQuery.addEventListener("change", selectHeroVideo);
+    } else if (heroMobileQuery.addListener) {
+      heroMobileQuery.addListener(selectHeroVideo);
+    }
+    /* If autoplay was blocked, retry on the visitor's first interaction. */
+    var kickHero = function () {
+      attemptHeroPlay();
+      window.removeEventListener("pointerdown", kickHero);
+      window.removeEventListener("keydown", kickHero);
+      window.removeEventListener("touchstart", kickHero);
+    };
+    window.addEventListener("pointerdown", kickHero);
+    window.addEventListener("keydown", kickHero);
+    window.addEventListener("touchstart", kickHero);
   }
 
   /* ---------- index rows: hover/tap plays the project loop (one at a time) ----------

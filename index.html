@@ -64,10 +64,9 @@
   <section class="hero" aria-label="Intro">
     <div class="hero__fallback" aria-hidden="true"></div>
     <div class="hero__media" aria-hidden="true">
-      <video muted loop playsinline autoplay preload="auto" poster="assets/hero-poster.jpg">
-        <source src="assets/hero.webm" type="video/webm" />
-        <source src="assets/hero.mp4" type="video/mp4" />
-      </video>
+      <video muted loop playsinline autoplay preload="metadata" poster="assets/hero-poster.jpg"
+             data-desktop-src="assets/hero.mp4" data-mobile-src="assets/hero-mobile.mp4"
+             data-desktop-poster="assets/hero-poster.jpg" data-mobile-poster="assets/hero-mobile-poster.jpg"></video>
     </div>
     <div class="hero__scrim" aria-hidden="true"></div>
 
